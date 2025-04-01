@@ -18,16 +18,16 @@ git push -u origin development
 TASK-3
 echo "More detailed development notes" >> dev_notes.txt
 git add dev_notes.txt
-git commit -am "Add more lines"
+git commit -m "Add more lines"
 git checkout main
 echo "Updates from main branch" >> dev_notes.txt
 git add dev_notes.txt
-git commit -am "updated from main branch"
+git commit -m "updated from main branch"
 git merge development
 
 TASK-4
 echo "Erroneous change" >> dev_notes.txt
-git commit -am "introduce an error"
+git commit -m "introduce an error"
 git log
 git revert <commit-id>
 
@@ -52,7 +52,7 @@ TASK-3
 git checkout -b feature1
 echo "Feature 1 implementation details." >> dev_notes.txt
 git add dev_notes.txt
-git commit -am "Add Feature 1 implementation details"
+git commit -m "Add Feature 1 implementation details"
 git checkout development
 git merge feature1
 
@@ -61,7 +61,7 @@ echo "uncommitted changes to dev_notes.txt." >> dev_notes.txt
 git stash
 git checkout main
 echo "How to Contribute" >> README.md
-git commit -am "update contribution guidelines to README.md"
+git commit -m "update contribution guidelines to README.md"
 git checkout development
 git stash apply
 
