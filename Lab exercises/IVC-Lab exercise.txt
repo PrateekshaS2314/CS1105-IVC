@@ -1,0 +1,175 @@
+																			QUESTION - 1 
+
+1. Task :- Set up a Git repository named WebProject. Configure Git with your details and ignore all .DS_Store and node_modules/ files. Connect to a remote repository at https://github.com/user/web-project.git.
+
+		Creating Git repository : git init WebProject
+		
+		Configure Git : ▪ git config user.name "Your Name"
+				 	  ▪ git config user.email "your.email@example.com"
+		
+		Creating a .gitignore file : Content:
+									.DS_Store
+									node_modules/
+							▪ Create a file named .gitignore in the repository root and add the above lines.
+		Adding a remote repository : git remote add origin https://github.com/user/web-project.git
+
+
+2. Task :- In the feature-login branch, create a file login.html. Add HTML code for a basic login form and commit. Add CSS in a new file style.css to style the form and commit these
+changes separately.
+
+		Creating and switching to a branch : git checkout -b feature-login (feature-login is the branch name)
+		
+		Adding a HTML file : 
+						   ▪ echo "<form>Login Form</form>" > login.html
+						   ▪ git add login.html
+     						   ▪ git commit -m "Add basic login form"
+
+		Adding a CSS file :
+						▪ echo "form { padding: 20px; }" > style.css
+						▪ git add style.css
+						▪ git commit -m "Style login form"
+
+
+3. Task: Merge feature-login into the development branch. Ensure that the merge does not fast-forward so that the merge is explicit in the project history.
+		
+		Switching to a Development Branch :  git checkout development
+		
+		Merging with no Fast-Forward :  git merge --no-ff feature-login
+
+
+4. Task: Create a hotfix branch to correct a typo in login.html. Make the change, commit it, and then merge this branch back into development using a fast-forward merge.
+
+		Creating and Switching to a Hotfix Branch : git checkout -b hotfix
+
+		Making the correction and committing : 
+										    ▪ sed -i 's/Login Form/Corrected Login Form/g' login.html
+										    ▪ git commit -am "Fix typo in login form"
+
+		Merging back to the Development : 
+									   ▪ git checkout development
+									   ▪ git merge hotfix
+
+
+5. Task: Tag the current state of development as release-1.0 and push all branches and tags to the remote repository. Demonstrate how to check out this tag into a separate directory for deployment testing.
+
+		Tagging : git tag -a release-1.0 -m "Release version 1.0"
+
+		Pushing changes : git push --all; git push --tags
+
+		Checkout Tag for Testing : git clone -b release-1.0 --single-branch https://github.com/user/web-project.git release-testing
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																				
+																			QUESTION - 2
+
+1.Initialize a new Git repository named ApiDevelopment. Configure Git with your username and email. Set up .gitignore to ignore bin/ and obj/ directories. Add a remote repository https://github.com/yourusername/api-dev.git.
+
+		Initialize the Repository : git init ApiDevelopment
+
+		Configure Git : 
+					▪ git config user.name "Your Username"
+					▪ git config user.email "your.email@example.com"
+
+		Set up .gitignore : 
+					      ▪ Content:
+								  bin/
+								  obj/
+					      ▪ Command: Save the above lines to a file named .gitignore in the root of your repository.
+
+		Add remote repository : git remote add origin https://github.com/yourusername/api-dev.git
+
+
+2. Task: In a branch called api-feature, develop two files: api.js and config.json. Write basic functionality in api.js and configuration settings in config.json. Commit each file separately.
+
+		Create and Switch Branch : git checkout -b api-feature
+
+		Add and Commit api.js : 
+							▪ echo "console.log('API Loaded');" > api.js
+							▪ git add api.js
+							▪ git commit -m "Add initial API functionality"
+
+		Add and configure config.json : 
+								     ▪ echo '{"settings": {"version": "1.0"}}' > config.json
+								     ▪ git add config.json
+								     ▪ git commit -m "Add API configuration file"
+
+
+3. Task: Create a pull request from api-feature to main on GitHub. Simulate a review process by commenting on the pull request and making additional changes as requested by a reviewer.
+
+		Push to Remote : git push origin api-feature
+
+		Create Pull Request : Use GitHub's web interface to create a pull request from api-feature to main.
+
+		Simulate Review and update : 
+								  ▪ echo "if (error) { console.error('Error loading API'); }" >> api.js
+								  ▪ git commit -am "Add error handling"
+								  ▪ git push origin api-feature
+
+
+4. Task: Implement a continuous integration pipeline using GitHub Actions in the api-feature branch. Write a basic YAML file that runs a script saying echo "CI Build Passed". Commit and push these changes.
+
+		Create GitHub actions YAML file : 
+									▪ steps:
+										- uses: actions/checkout@v2
+										- name: Run a one-line script
+										   run: echo "CI Build Passed"
+									▪ Command:
+												▪ echo "<content>" > .github/workflows/ci.yml
+
+												▪ git add .github/workflows/ci.yml
+												▪ git commit -m "Setup CI pipeline"
+												▪ git push origin api-feature
+
+
+5. Task: After merging api-feature into main, tag the final merge commit as v2.0 and demonstrate pushing the tag to the remote repository. Also, provide instructions on how to revert to the previous version v1.5 if necessary.
+
+		Merge and Tag : 
+					    ▪ git checkout main
+					    ▪ git merge api-feature
+					    ▪ git tag -a v2.0 -m "Release version 2.0"
+					    ▪ git push origin main --tags
+
+		Reverting to Previous Version : git checkout v1.5
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+																				Question - 3 
+
+1. Task: Create a new repository named 'SampleProject', configure your user details, create a README file, and push the setup to a remote repository.
+
+		Initialize the Repository : git init SampleProject
+
+		Configure User Details : 
+							▪ git config user.name "Your Name"
+							▪ git config user.email "youremail@example.com"
+
+		Create and Commit README :
+								     ▪ echo "# SampleProject" > README.md
+								     ▪ git add README.md
+								     ▪ git commit -m "Initial commit with README"
+
+		Add Remote and Push : 
+							▪ git remote add origin https://github.com/yourusername/SampleProject.git
+							▪ git push -u origin master
+
+
+2. Task: Create a branch named 'feature-enhancement', make changes to a file named 'app.js', commit these changes, and merge this branch back to the main branch.
+
+		Create and Switch to New Branch : git checkout -b feature-enhancement
+
+		Modify and Commit : 
+						     ▪ echo "console.log('Feature added');" > app.js
+						     ▪ git add app.js
+						     ▪ git commit -m "Add new feature to app.js"
+
+		Merge to Main : 
+					    ▪ git checkout main
+					    ▪ git merge feature-enhancement
+
+
+3. Task: Simulate a scenario where you need to revert the last commit made to the 'main'
+branch due to an error.
+
+		Revert Last Commit : git revert HEAD
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

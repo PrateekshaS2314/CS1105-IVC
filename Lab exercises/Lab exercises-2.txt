@@ -1,0 +1,92 @@
+EXERCISE-1
+
+TASK-1
+git init ProjectRepo
+cd ProjectRepo
+echo "*.log"> .gitignore
+git add .gitignore
+git commit -m ".log files added"
+git remote add origin https://github.com/username/ProjectRepo.git
+
+TASK-2
+git checkout -b development
+echo "Initial development notes" > dev_notes.txt
+git add dev_notes.txt
+git commit -m "dev_notes.txt implemented"
+git push -u origin development
+
+TASK-3
+echo "More detailed development notes" >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Add more lines"
+git checkout main
+echo "Updates from main branch" >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "updated from main branch"
+git merge development
+
+TASK-4
+echo "Erroneous change" >> dev_notes.txt
+git commit -m "introduce an error"
+git log
+git revert <commit-id>
+
+
+
+EXERCISE-2
+
+TASK-1
+git init ProjectX
+cd ProjectX
+echo "ProjectX Objectives: This project aims XYZ." > README.md
+git add README.md
+git commit -m "README.md committed"
+
+TASK-2
+git checkout -b development
+echo "Development Guidelines:xyz" > dev_notes.txt
+git add dev_notes.txt
+git commit -m "Add development notes"
+
+TASK-3
+git checkout -b feature1
+echo "Feature 1 implementation details." >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Add Feature 1 implementation details"
+git checkout development
+git merge feature1
+
+TASK-4
+echo "uncommitted changes to dev_notes.txt." >> dev_notes.txt
+git stash
+git checkout main
+echo "How to Contribute" >> README.md
+git commit -m "update contribution guidelines to README.md"
+git checkout development
+git stash apply
+
+
+
+EXERCISE-3
+git clone https://github.com/your-username/Project-1.git
+cd Project-1
+git checkout -b bug-fix
+git add error_log.txt
+git commit -m "Correct spelling and formatting errors in error_log.txt"
+git push origin bug-fix
+
+
+
+EXERCISE-4
+git checkout feature-x
+echo "information about feature" > new_feature.md
+git stash save "Work on new_feature.md"
+git checkout development
+echo "Urgent fix applied" > urgent_fix.txt
+git add urgent_fix.txt
+git commit -m "Apply urgent fix"
+git checkout feature-x
+git stash pop
+echo "extra details" >> new_feature.md
+git add new_feature.md
+git commit -m "updated new_feature.md"
